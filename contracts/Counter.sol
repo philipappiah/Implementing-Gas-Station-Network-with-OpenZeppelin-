@@ -12,7 +12,7 @@ contract Counter is Initializable, GSNRecipient {
   function initialize(uint num) public initializer {
     GSNRecipient.initialize();
     _owner = _msgSender();
-    _owner = msg.sender;
+    
     count = num;
   }
 

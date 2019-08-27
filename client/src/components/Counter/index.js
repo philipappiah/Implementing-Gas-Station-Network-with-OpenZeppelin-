@@ -10,7 +10,7 @@ import { async } from 'q';
 const { isRelayHubDeployedForRecipient, getRecipientFunds } = utils;
 
 export default function Counter(props) {
-  const Web3 = web3;
+  
   const { instance, accounts, lib, networkName, networkId, providerName } = props;
   const { _address, methods } = instance || {};
 
@@ -129,14 +129,7 @@ export default function Counter(props) {
     );
   }
 
-  const fund = async () =>{
-   
-    
-    await instance.methods.fundContract().send({from: accounts[0], value: 500000000000});
-   
-   
-    //alert('Heya');
-  }
+  
 
 
   function renderNoFunds() {
@@ -152,7 +145,7 @@ export default function Counter(props) {
           </code>
         </div>
         <p>to fund the recipient on local network.</p>
-        <Button onClick={fund}>Fund</Button>
+        
       </div>
     );
   }
@@ -190,6 +183,7 @@ export default function Counter(props) {
           </a>{' '}
           has been mined on {networkName} network.
         </p>
+        
       </div>
     );
   }
@@ -239,6 +233,9 @@ export default function Counter(props) {
           {transactionHash && networkName !== 'Private' && renderTransactionHash()}
         </React.Fragment>
       )}
+
+
+
     </div>
   );
 }

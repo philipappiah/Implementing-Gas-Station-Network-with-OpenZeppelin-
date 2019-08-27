@@ -10,26 +10,27 @@ import Counter from './components/Counter/index.js';
 import styles from './App.module.scss';
 
 // const infuraToken = process.env.REACT_APP_INFURA_TOKEN;
-const infuraToken = '95202223388e49f48b423ea50a70e336';
+const infuraToken = '89d8a46b2a8d46a8afec97ed7631c6d5';
 
 function App() {
   // get ephemeralKey
   const signKey = useEphemeralKey();
 
-  // get GSN web3
-  // const context = useWeb3Network(`wss://rinkeby.infura.io/ws/v3/${infuraToken}`, {
-  //   pollInterval: 15 * 1000,
-  //   gsn: {
-  //     signKey,
-  //   },
-  // });
-
-  const context = useWeb3Network('http://127.0.0.1:8545', {
+  //get GSN web3
+  const context = useWeb3Network(`wss://ropsten.infura.io/ws/v3/${infuraToken}`, {
+    pollInterval: 15 * 1000,
     gsn: {
-      dev: true,
       signKey,
     },
   });
+
+  // const context = useWeb3Network('http://127.0.0.1:8545', {
+  //   gsn: {
+  //     dev: true,
+  //     signKey
+      
+  //   },
+  // });
 
   //const context = useWeb3Injected();
 
